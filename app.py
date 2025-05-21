@@ -2,10 +2,13 @@ from flask import Flask
 from config import Config
 from database import db
 from flask_jwt_extended import JWTManager
+from flask_cors import CORS  # <-- import here
 
 # Initialize app
 app = Flask(__name__)
 app.config.from_object(Config)
+
+CORS(app)  # <-- enable CORS here
 
 # Initialize extensions
 db.init_app(app)

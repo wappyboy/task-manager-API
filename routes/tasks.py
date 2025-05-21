@@ -5,7 +5,7 @@ from database import db
 
 tasks_bp = Blueprint('tasks', __name__)
 
-@tasks_bp.route('/', methods=['GET'])
+@tasks_bp.route('/', methods=['GET'], strict_slashes=False)
 @jwt_required()
 def get_tasks():
     user_id = get_jwt_identity()
